@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP6</title>
+
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/styles.css">
+
+    <!-- VUE.JS -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- DRAGGABLE -->
+    <script src="//cdn.jsdelivr.net/npm/sortablejs@1.8.4/Sortable.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/Vue.Draggable/2.20.0/vuedraggable.umd.min.js"></script>
+
+    <!-- JS -->
+    <script src="../js/models/models.js"></script>
+    <script src="../js/components/component-boutique.js"></script>
+    <script src="../js/components/component-personnage.js"></script>
+    <script src="../js/components/component-master.js"></script>
+</head>
+
+<body>
+    <div class="container" id="main-div">
+        <div class="row">
+            <div class="col-12 d-flex justify-content-around align-items-center">
+                TP 6
+                <div>
+                    <label>{{mode}}</label>
+                    <input type="checkbox" v-model="flag" class="btn btn-success" @click="change">
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div v-if="flag">
+            <div class="row">
+                <div class="col-6">
+                    <boutique-component></boutique-component>
+                </div>
+                <div class="col-6">
+                    <personnage-component :people="people"></personnage-component>
+                </div>
+            </div>
+        </div>
+        <div v-else>
+            <div class="row">
+                <div class="col-12">
+                    <master-component></master-component>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script src="../js/functions.js"></script>
+</body>
+
+</html>
