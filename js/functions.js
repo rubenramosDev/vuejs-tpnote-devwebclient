@@ -23,8 +23,8 @@ var app = new Vue({
         flag: true,
         mode: "Normal",
         buy: false,
-        index:0,
-        flagBuy:false
+        flagBuy: false,
+        item: null
     },
     methods: {
         change: function () {

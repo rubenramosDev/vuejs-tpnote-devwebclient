@@ -8,14 +8,16 @@ Vue.component("boutiqueComponent", {
   },
   methods: {
     principaleItems: function () {
+      this.$root.$data.store = true;
       this.items = this.$root.$data.fitems;
     },
     secondaryItems: function () {
+      this.$root.$data.store = false;
       this.items = this.$root.$data.sitems;
     },
     buy: function (id) {
-        this.$root.$data.flagBuy = true;
-        this.$root.$data.index = id;
+      this.$root.$data.flagBuy = true;
+      this.$root.$data.item = this.items[id];
     }
   },
   computed: {

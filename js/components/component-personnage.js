@@ -7,7 +7,7 @@ Vue.component("personnageComponent", {
             nlife: 0,
             ngold: 0,
             nlevel: 0,
-            item: this.$root.$data.index
+            nomon
         }
     },
     computed: {
@@ -25,9 +25,11 @@ Vue.component("personnageComponent", {
             }
         },
         buyCart: function () {
+
             if (this.$root.$data.flagBuy) {
-                let index = this.$root.$data.index;
-                let item = this.$root.$data.fitems[index];
+                
+                let item = this.$root.$data.item;
+
                 if (item.price <= this.person.gold) {
                     this.person.boughtItems.push(item);
                     this.person.gold -= item.price;
@@ -43,7 +45,7 @@ Vue.component("personnageComponent", {
         },
         onlyNumber($event) {
             let keyCode = ($event.keyCode ? $event.keyCode : $event.which);
-            if ((keyCode < 48 || keyCode > 57) && keyCode !== 46) { // 46 is dot
+            if ((keyCode < 48 || keyCode > 57) && keyCode !== 46) { 
                 $event.preventDefault();
             }
         },
